@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Instagram, MapPin, Mail, Phone } from "lucide-react";
+import { Instagram, MapPin, Mail, Phone, Facebook } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function Footer() {
@@ -14,15 +14,24 @@ export function Footer() {
               Awakening the soul of a home. We craft spaces that feel personal, warm, and distinctly yours in the heart of Hoi An.
             </p>
             <div className="flex items-center space-x-4 pt-2">
-              <a 
-                href="https://www.instagram.com/inn.hoian" 
-                target="_blank" 
+              <a
+                href="https://www.instagram.com/inn.hoian"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors text-background"
               >
                 <Instagram size={20} strokeWidth={1.5} />
               </a>
+              <a
+                href="https://www.facebook.com/p/Inn-Hoi-An-61563765966382/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors text-background"
+              >
+                <Facebook size={20} strokeWidth={1.5} />
+              </a>
             </div>
+
           </div>
 
           {/* Links */}
@@ -42,15 +51,15 @@ export function Footer() {
             <ul className="space-y-4 text-background/70">
               <li className="flex items-start space-x-3">
                 <MapPin className="mt-1 shrink-0" size={18} strokeWidth={1.5} />
-                <span>Hoi An Ancient Town,<br/>Quang Nam, Vietnam</span>
+                <span>Hoi An Ancient Town,<br />Quang Nam, Vietnam</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="shrink-0" size={18} strokeWidth={1.5} />
-                <a href="mailto:hello@innhoian.com" className="hover:text-primary">hello@innhoian.com</a>
+                <a href="mailto:hello@innhoian.com" className="hover:text-primary">innhoian@gmail.com</a>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="shrink-0" size={18} strokeWidth={1.5} />
-                <a href="tel:+84905123456" className="hover:text-primary">+84 905 123 456</a>
+                <a href="tel:+84905123456" className="hover:text-primary">090 480 07 99</a>
               </li>
             </ul>
           </div>

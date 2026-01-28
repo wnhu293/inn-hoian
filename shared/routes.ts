@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { insertMessageSchema, projects, services, posts, messages } from './schema';
+import { insertMessageSchema, projects, services, posts, messages, rooms } from './schema';
 
 // ============================================
 // SHARED ERROR SCHEMAS
@@ -37,6 +37,14 @@ export const api = {
         404: errorSchemas.notFound,
       },
     },
+    getById: {
+      method: 'GET' as const,
+      path: '/api/projects/id/:id',
+      responses: {
+        200: z.custom<typeof projects.$inferSelect>(),
+        404: errorSchemas.notFound,
+      },
+    },
   },
   services: {
     list: {
@@ -63,6 +71,14 @@ export const api = {
         404: errorSchemas.notFound,
       },
     },
+    getById: {
+      method: 'GET' as const,
+      path: '/api/posts/id/:id',
+      responses: {
+        200: z.custom<typeof posts.$inferSelect>(),
+        404: errorSchemas.notFound,
+      },
+    },
   },
   contact: {
     submit: {
@@ -72,6 +88,118 @@ export const api = {
       responses: {
         201: z.custom<typeof messages.$inferSelect>(),
         400: errorSchemas.validation,
+      },
+    },
+  },
+  rooms: {
+    list: {
+      method: 'GET' as const,
+      path: '/api/admin/rooms',
+      responses: {
+        200: z.array(z.custom<typeof rooms.$inferSelect>()),
+      },
+    },
+    getById: {
+      method: 'GET' as const,
+      path: '/api/admin/rooms/id/:id',
+      responses: {
+        200: z.custom<typeof rooms.$inferSelect>(),
+        404: errorSchemas.notFound,
+      },
+    },
+    save: {
+      method: 'POST' as const,
+      path: '/api/admin/rooms/save',
+      input: z.object({
+        id: z.number().optional(),
+        name: z.string().min(1, 'Room name is required'),
+        type: z.string().min(1, 'Room type is required'),
+        price: z.number().min(0, 'Price must be positive'),
+        status: z.string().optional(),
+        projectId: z.number().optional(),
+        description: z.string().optional(),
+        amenities: z.array(z.string()).optional(),
+        images: z.array(z.string()).optional(),
+      }),
+      responses: {
+        200: z.custom<typeof rooms.$inferSelect>(),
+        201: z.custom<typeof rooms.$inferSelect>(),
+        400: errorSchemas.validation,
+        500: errorSchemas.internal,
+      },
+    },
+    delete: {
+      method: 'DELETE' as const,
+      path: '/api/admin/rooms/:id',
+      responses: {
+        200: z.object({ success: z.boolean(), message: z.string() }),
+        404: errorSchemas.notFound,
+        500: errorSchemas.internal,
+      },
+    },
+  },
+  admin: {
+    dashboard: {
+      method: 'GET' as const,
+      path: '/api/admin/dashboard',
+      responses: {
+        200: z.object({
+          stats: z.object({
+            projects: z.object({
+              total: z.number(),
+              growth: z.number(), // Phần trăm tăng trưởng
+            }),
+            services: z.object({
+              total: z.number(),
+              growth: z.number(),
+            }),
+            posts: z.object({
+              total: z.number(),
+              growth: z.number(),
+            }),
+            messages: z.object({
+              total: z.number(),
+              growth: z.number(),
+            }),
+          }),
+        }),
+        500: errorSchemas.internal,
+      },
+    },
+    projects: {
+      list: {
+        method: 'GET' as const,
+        path: '/api/admin/projects',
+        responses: {
+          200: z.array(z.custom<typeof projects.$inferSelect>()),
+        },
+      },
+    },
+    posts: {
+      list: {
+        method: 'GET' as const,
+        path: '/api/admin/posts',
+        responses: {
+          200: z.array(z.custom<typeof posts.$inferSelect>()),
+        },
+      },
+    },
+    services: {
+      list: {
+        method: 'GET' as const,
+        path: '/api/admin/services',
+        responses: {
+          200: z.array(z.custom<typeof services.$inferSelect>()),
+        },
+      },
+    },
+    messages: {
+      list: {
+        method: 'GET' as const,
+        path: '/api/admin/messages',
+        responses: {
+          200: z.array(z.custom<typeof messages.$inferSelect>()),
+        },
       },
     },
   },

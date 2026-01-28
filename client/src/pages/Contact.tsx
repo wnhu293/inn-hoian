@@ -10,7 +10,9 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Mail, MapPin, Phone, Instagram, Send } from "lucide-react";
+import { Mail, MapPin, Phone, Instagram, Send, Facebook, Music2 } from "lucide-react";
+import { RiTiktokLine } from "react-icons/ri";
+
 
 export default function Contact() {
   const { toast } = useToast();
@@ -77,7 +79,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-bold text-foreground">Visit Us</h4>
-                  <p className="text-muted-foreground">Hoi An Ancient Town,<br/>Quang Nam, Vietnam</p>
+                  <p className="text-muted-foreground">Hoi An Ancient Town,<br />Quang Nam, Vietnam</p>
                 </div>
               </div>
 
@@ -104,14 +106,34 @@ export default function Contact() {
 
             <div className="pt-8 border-t border-border">
               <h4 className="font-bold text-foreground mb-4">Follow our journey</h4>
-              <a 
-                href="https://www.instagram.com/inn.hoian" 
-                target="_blank" 
+              <a
+                href="https://www.instagram.com/inn.hoian"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center space-x-2 text-primary hover:text-primary/80 font-medium"
               >
                 <Instagram size={20} />
                 <span>@inn.hoian</span>
+              </a>
+              <br />
+              <a
+                href="https://www.facebook.com/profile.php?id=61563765966382"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 text-primary hover:text-primary/80 font-medium"
+              >
+                <Facebook size={20} />
+                <span>Inn Hoi An</span>
+              </a>
+              <br />
+              <a
+                href="https://www.tiktok.com/@inn.vietnam?_r=1&_t=ZP-93NzhLyyULG"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 text-primary hover:text-primary/80 font-medium"
+              >
+                <RiTiktokLine size={20} />
+                <span>@inn.vietnam</span>
               </a>
             </div>
           </div>
@@ -119,7 +141,7 @@ export default function Contact() {
           {/* Form Side */}
           <div className="bg-white p-8 md:p-10 rounded-3xl border border-border shadow-lg">
             <h3 className="text-2xl font-display font-bold mb-8">Send a message</h3>
-            
+
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <FormField
@@ -127,40 +149,52 @@ export default function Contact() {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Your Name</FormLabel>
+                      <FormLabel>Họ và tên</FormLabel>
                       <FormControl>
-                        <Input placeholder="John Doe" {...field} className="rounded-xl h-12 bg-secondary/10 border-border focus:ring-primary/20" />
+                        <Input placeholder="Mango Nguyen" {...field} className="rounded-xl h-12 bg-secondary/10 border-border focus:ring-primary/20" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
 
+                <FormField
+                  control={form.control}
+                  name="number"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Số điện thoại </FormLabel>
+                      <FormControl>
+                        <Input placeholder="0901234567" {...field} className="rounded-xl h-12 bg-secondary/10 border-border focus:ring-primary/20" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
                 <FormField
                   control={form.control}
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Email Address</FormLabel>
+                      <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input placeholder="john@example.com" {...field} className="rounded-xl h-12 bg-secondary/10 border-border focus:ring-primary/20" />
+                        <Input placeholder="abc@gmail.com" {...field} className="rounded-xl h-12 bg-secondary/10 border-border focus:ring-primary/20" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
-
                 <FormField
                   control={form.control}
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Message</FormLabel>
+                      <FormLabel>Nhu cầu tư vấn</FormLabel>
                       <FormControl>
-                        <Textarea 
-                          placeholder="Tell us about your trip or project..." 
-                          className="min-h-[150px] rounded-xl bg-secondary/10 border-border resize-none focus:ring-primary/20" 
-                          {...field} 
+                        <Textarea
+                          placeholder="Hãy nói cho cho chúng tôi biết kế hoạch chuyến đi của bạn ...."
+                          className="min-h-[150px] rounded-xl bg-secondary/10 border-border resize-none focus:ring-primary/20"
+                          {...field}
                         />
                       </FormControl>
                       <FormMessage />
@@ -168,8 +202,8 @@ export default function Contact() {
                   )}
                 />
 
-                <Button 
-                  type="submit" 
+                <Button
+                  type="submit"
                   disabled={mutation.isPending}
                   className="w-full h-14 rounded-xl text-lg font-medium bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20"
                 >

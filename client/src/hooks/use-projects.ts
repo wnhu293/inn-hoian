@@ -3,11 +3,11 @@ import { api, buildUrl } from "@shared/routes";
 
 export function useProjects() {
   return useQuery({
-    queryKey: [api.projects.list.path],
+    queryKey: [api.admin.projects.list.path],
     queryFn: async () => {
-      const res = await fetch(api.projects.list.path);
+      const res = await fetch(api.admin.projects.list.path);
       if (!res.ok) throw new Error("Failed to fetch projects");
-      return api.projects.list.responses[200].parse(await res.json());
+      return api.admin.projects.list.responses[200].parse(await res.json());
     },
   });
 }

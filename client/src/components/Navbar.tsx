@@ -41,8 +41,8 @@ export function Navbar() {
             <span className="font-display text-2xl font-bold tracking-tight text-primary">
               INN HoiAn
             </span>
-            <span className="text-[10px] uppercase tracking-widest text-muted-foreground group-hover:text-primary transition-colors">
-              Homestay & Design
+            <span className="block text-center text-[10px] uppercase tracking-widest text-muted-foreground group-hover:text-primary transition-colors">
+              Homestay
             </span>
           </div>
         </Link>

@@ -20,9 +20,9 @@ export default function Home() {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           {/* cozy interior homestay warm light */}
-          <img 
-            src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=2070&auto=format&fit=crop" 
-            alt="Cozy Interior" 
+          <img
+            src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=2070&auto=format&fit=crop"
+            alt="Cozy Interior"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/30 backdrop-blur-[2px]" />
@@ -36,25 +36,20 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <span className="inline-block py-1 px-3 border border-white/30 rounded-full text-xs font-medium tracking-widest uppercase mb-6 bg-white/10 backdrop-blur-md">
-              Welcome to INN HoiAn
+              INN HoiAn
             </span>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-medium leading-tight mb-6 text-balance">
-              Heart in every action, <br/>
-              <span className="text-accent italic">taste in every detail</span>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-medium leading-tight mb-6 text-balance text-accent italic">
+              Quản lý - Vận hành- Kinh doanh dịch vụ
             </h1>
-            <p className="text-lg md:text-xl text-white/90 max-w-xl mx-auto mb-10 font-light">
-              We create spaces that feel less like a hotel and more like a homecoming in the ancient town.
-            </p>
+
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/journey">
+              <a href="https://www.airbnb.com/rooms/1182167046150344707?viralityEntryPoint=1&s=76">
                 <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground border-none rounded-full px-8 h-14 text-base shadow-lg shadow-black/10">
-                  Our Homestays
-                </Button>
-              </Link>
+                  Đặt lịch tư vấn                </Button>
+              </a>
               <Link href="/about">
                 <Button variant="outline" size="lg" className="bg-white/10 border-white/30 text-white hover:bg-white/20 rounded-full px-8 h-14 text-base backdrop-blur-sm">
-                  Our Philosophy
-                </Button>
+                  Xem các dự án                </Button>
               </Link>
             </div>
           </motion.div>
@@ -63,12 +58,12 @@ export default function Home() {
 
       {/* Featured Projects */}
       <Section className="bg-background">
-        <SectionHeader 
-          title="Curated spaces for the soulful traveler" 
-          subtitle="Featured Stays" 
-          centered 
+        <SectionHeader
+          title="Curated spaces for the soulful traveler"
+          subtitle="Featured Stays"
+          centered
         />
-        
+
         {isLoading ? (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[1, 2, 3].map((i) => (
@@ -88,10 +83,10 @@ export default function Home() {
                   className="group relative overflow-hidden rounded-2xl bg-card border border-border/50 shadow-sm hover:shadow-lg transition-all duration-300"
                 >
                   <div className="aspect-[4/3] overflow-hidden">
-                    <img 
-                      src={project.images?.[0] || "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&auto=format&fit=crop"} 
+                    <img
+                      src={project.images?.[0] || "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&auto=format&fit=crop"}
                       alt={project.name}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                   </div>
                   <div className="p-6">
@@ -105,9 +100,9 @@ export default function Home() {
                     <p className="text-muted-foreground text-sm line-clamp-2 mb-4">
                       {project.slogan || project.description}
                     </p>
-                    <a 
-                      href={project.airbnbUrl || "#"} 
-                      target="_blank" 
+                    <a
+                      href={project.airbnbUrl || "#"}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center text-sm font-medium text-foreground hover:text-primary transition-colors border-b border-transparent hover:border-primary pb-0.5"
                     >
@@ -152,7 +147,7 @@ export default function Home() {
               <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
                 From breathing new life into old structures to managing seamless guest experiences, we offer full-spectrum services for property owners in Hoi An.
               </p>
-              
+
               <ul className="space-y-4 mb-8">
                 {["Homestay Operations", "Renovation & Design", "Business Strategy"].map((item) => (
                   <li key={item} className="flex items-center text-foreground font-medium">
@@ -172,9 +167,9 @@ export default function Home() {
           <div className="order-1 md:order-2 relative">
             <div className="aspect-square rounded-full overflow-hidden border-8 border-white shadow-2xl relative z-10 max-w-md mx-auto">
               {/* renovation minimalist interior design */}
-              <img 
-                src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop" 
-                alt="Renovation Service" 
+              <img
+                src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop"
+                alt="Renovation Service"
                 className="w-full h-full object-cover"
               />
             </div>

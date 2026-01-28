@@ -3,11 +3,11 @@ import { api, buildUrl } from "@shared/routes";
 
 export function usePosts() {
   return useQuery({
-    queryKey: [api.posts.list.path],
+    queryKey: [api.admin.posts.list.path],
     queryFn: async () => {
-      const res = await fetch(api.posts.list.path);
+      const res = await fetch(api.admin.posts.list.path);
       if (!res.ok) throw new Error("Failed to fetch posts");
-      return api.posts.list.responses[200].parse(await res.json());
+      return api.admin.posts.list.responses[200].parse(await res.json());
     },
   });
 }
